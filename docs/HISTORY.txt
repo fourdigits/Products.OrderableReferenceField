@@ -1,0 +1,8 @@
+Changelog
+=========
+
+1.2-beta2 - Unreleased
+----------------
+
+* Initial release
+
