@@ -19,9 +19,9 @@ long_description = (
 
 setup(name='Products.OrderableReferenceField',
       version=version,
-      description="This product provides an Archetype field that's very similiar
-        to the Archetypes Reference field, with the addition that it stores the
-         order of referenced objects",
+      description="This product provides an Archetype field that's very similiar \
+        to the Archetypes Reference field, with the addition that it stores the \
+        order of referenced objects",
       long_description=long_description,
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
