@@ -7,9 +7,7 @@ Reference field, with the addition that it stores the order of referenced object
 Usage
 -----
 
-1. Install as usual in your Products directory.
-
-2. Install it in Plone to make the skins available.
+1. Add this package to your buildout or setup.py of your custom-package
 
 3. Add this line to your custom Archetype to import the fields::
 
@@ -38,6 +36,9 @@ Credits
 - Thanks to mirella <Mirella van Teulingen, m.van.teulingen@zestsoftware.nl>
   for cleaning up the template by moving style elements to the css.
 
+- Eggification by aclark
+
+- Move install-code to GS-profiles by WouterVH
 
 Copyright
 ---------
