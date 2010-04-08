@@ -5,7 +5,14 @@ Changelog
 1.2 (xxxx-xx-xx)
 ----------------
 
-- eggificiation [aclark]
+- Move Install.py to GS-profile [WouterVH]
+
+- Add `z3c.autoinclude` entry point for automatic ZCML loading in Plone 3.3+.
+  [WouterVH]
+
+- add MANIFEST.in-file [WouterVH]
+
+- Eggification [aclark]
 
 - Bug fix: when you select an item on the left (the options) and do not move it
   to the right (the selected items) then when saving this would happen anyway.

@@ -29,12 +29,12 @@ from Products.CMFCore import permissions
 from Products.Archetypes.atapi import *
 from Products.Archetypes import listTypes
 
-from Products.OrderableReferenceField._field import \
-     OrderableReferenceField, OrderableReferenceWidget
+from Products.OrderableReferenceField._field import OrderableReferenceField
+from Products.OrderableReferenceField._field import OrderableReferenceWidget
 from Products.OrderableReferenceField.config import *
 
 GLOBALS = globals()
-registerDirectory('skins', GLOBALS)
+#registerDirectory('skins', GLOBALS)
 
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""
