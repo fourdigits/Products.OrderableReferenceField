@@ -26,38 +26,36 @@ __author__ = """Jean-Paul Ladage <j.ladage@zestsoftware.nl>"""
 __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
-
 from Products.Archetypes.atapi import *
-
 from Products.OrderableReferenceField.config import *
+
 
 schema = Schema((
     StringField(
-        name='name',
-        widget=StringWidget(label='Name'),
-    ),
+        name = 'name',
+        widget = StringWidget(label='Name'),
+        ),
     StringField(
-        name='email',
-        widget=StringWidget(label='Email'),
-    ),
+        name = 'email',
+        widget = StringWidget(label='Email'),
+        ),
     StringField(
-        name='phonenumber',
-        widget=StringWidget(label='Phonenumber'),
-    ),
-),
-)
+        name = 'phonenumber',
+        widget = StringWidget(label='Phonenumber'),
+        ),
+    ),)
 
 ContactPerson_schema = BaseSchema.copy() + schema.copy()
+
 
 class ContactPerson(BaseContent):
     """
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BaseContent,'__implements__',()),)
 
     archetype_name = 'Contact Person'
     meta_type = portal_type = 'ContactPerson'
-
     schema = ContactPerson_schema
+
 
 registerType(ContactPerson, PROJECTNAME)
