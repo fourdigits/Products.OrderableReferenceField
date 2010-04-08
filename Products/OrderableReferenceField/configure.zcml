@@ -33,4 +33,11 @@
     description="Orderable ReferenceField"
     provides="Products.GenericSetup.interfaces.EXTENSION" />
 
+  <genericsetup:registerProfile
+    name="example"
+    title="Products.OrderableReferenceField - example"
+    directory="profiles/example"
+    description="Example content types for Products.OrderableReferenceField"
+    provides="Products.GenericSetup.interfaces.EXTENSION" />
+
 </configure>
