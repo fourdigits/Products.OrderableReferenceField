@@ -25,34 +25,33 @@ __author__ = """Jean-Paul Ladage <j.ladage@zestsoftware.nl>"""
 __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
-
 from Products.Archetypes.atapi import *
 
 from Products.OrderableReferenceField.config import *
-from Products.OrderableReferenceField import \
-     OrderableReferenceField, OrderableReferenceWidget
+from Products.OrderableReferenceField import OrderableReferenceField
+from Products.OrderableReferenceField import OrderableReferenceWidget
+
 
 schema = Schema((
     OrderableReferenceField(
-        name='contact',
-        vocabulary_display_path_bound="-1",
-        widget=OrderableReferenceWidget(label='Contact'),
-        allowed_types=('ContactPerson',),
-        multiValued=1,
-        relationship='favorite_contact'),
-),
-)
+        name = 'contact',
+        vocabulary_display_path_bound = "-1",
+        widget = OrderableReferenceWidget(label='Contact'),
+        allowed_types = ('ContactPerson', ),
+        multiValued = 1,
+        relationship = 'favorite_contact'),
+    ),)
 
 Favorite_schema = BaseSchema.copy() + schema.copy()
+
 
 class MyFavorite(BaseContent):
     """A group of favorite contacts
     """
     security = ClassSecurityInfo()
 
-    __implements__ = (getattr(BaseContent,'__implements__',()),) 
-
     archetype_name = meta_type = portal_type = 'MyFavorite'
     schema = Favorite_schema
+
 
 registerType(MyFavorite, PROJECTNAME)
