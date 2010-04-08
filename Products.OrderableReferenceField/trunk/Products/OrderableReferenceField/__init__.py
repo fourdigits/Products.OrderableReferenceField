@@ -22,7 +22,6 @@
 $Id$
 """
 
-from Products.CMFCore.DirectoryView import registerDirectory
 from Products.CMFCore import utils as cmfutils
 from Products.CMFCore import permissions
 
@@ -33,22 +32,19 @@ from Products.OrderableReferenceField._field import OrderableReferenceField
 from Products.OrderableReferenceField._field import OrderableReferenceWidget
 from Products.OrderableReferenceField.config import *
 
-GLOBALS = globals()
-#registerDirectory('skins', GLOBALS)
 
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""
-    if REGISTER_DEMO_TYPES:
-        import Products.OrderableReferenceField.examples
 
-        content_types, constructors, ftis = process_types(
-            listTypes(PROJECTNAME),
-            PROJECTNAME)
+    import Products.OrderableReferenceField.examples
 
-        cmfutils.ContentInit(
-            PROJECTNAME + ' Content',
-            content_types = content_types,
-            permission = permissions.AddPortalContent,
-            extra_constructors = constructors,
-            fti = ftis,
-        ).initialize(context)
+    content_types, constructors, ftis = process_types(
+        listTypes(PROJECTNAME), PROJECTNAME)
+
+    cmfutils.ContentInit(
+        PROJECTNAME + ' Content',
+        content_types = content_types,
+        permission = permissions.AddPortalContent,
+        extra_constructors = constructors,
+        fti = ftis,
+    ).initialize(context)
