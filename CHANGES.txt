@@ -2,8 +2,11 @@ Changelog
 =========
 
 
-1.2 (xxxx-xx-xx)
-----------------
+1.2-beta3 (2010-04-14)
+----------------------
+
+- First egg release to PyPI.
+  [naro]
 
 - Move Install.py to GS-profile [WouterVH]
 
