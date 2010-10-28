@@ -64,7 +64,7 @@
                                   tal:attributes="name string:${fieldName}_options:list;
                                             id string:${fieldName}_options:list;
                                             size widget/size;
-                                            tabindex tabindex/next;
+                                            tabindex tabindex/next | nothing;
                                             onDblClick string:javascript:inout_moveKeywords('${fieldName}_options:list','${fieldName}:list','${fieldName}:list')">
     
                       <tal:block tal:repeat="vocab_item vocab">
@@ -107,7 +107,7 @@
                                               name string:${fieldName}:list;
                                               id string:${fieldName}:list;
                                               size widget/size;
-                                              tabindex tabindex/next;
+                                              tabindex tabindex/next | nothing;
                                               onDblClick string:javascript:inout_moveKeywords('${fieldName}:list','${fieldName}_options:list','${fieldName}:list')">
           
         
