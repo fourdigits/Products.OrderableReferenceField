@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.2-beta4 (2010-11-17)
+----------------------
+
+- Plone 4 compatibility.
+  [malthe]
+
 - Remove (hard dependency on) deprecated ``getMsgId`` method on vocabularies.
   [malthe]
 
