@@ -5,16 +5,12 @@ from setuptools import setup, find_packages
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '1.2-beta4'
+version = '1.3'
 
 long_description = (
     read('README.txt')
     + '\n' +
     read('CHANGES.txt')
-#    + '\n' +
-#    read('Products', 'OrderableReferenceField', 'README.txt')
-#    + '\n' +
-#    read('CONTRIBUTORS.txt')
     )
 
 setup(name='Products.OrderableReferenceField',
