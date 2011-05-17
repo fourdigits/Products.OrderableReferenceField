@@ -8,6 +8,14 @@
               enabled="True"
               expression=""
               inline="False"/>
+			  
+  <javascript id="orderablereferencebrowser.js"
+              cacheable="True"
+              compression="none"
+              cookable="True"
+              enabled="True"
+              expression=""
+              inline="False"/>
 
 </object>
 
