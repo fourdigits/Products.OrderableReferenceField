@@ -5,7 +5,7 @@ Changelog
 ----------------
 
 - alternative OrderableReferenceBrowserWidget (using the original Plone pop-up to select objects)
-  (see also `#4`__) [marco.mariani]
+  (see also `#4`__) [filippo1178, marco.mariani]
 - removed z3c.autoinclude ``includeDependencies`` (see `#3`__) [keul]
 
 __ http://plone.org/products/orderablereferencefield/issues/4
