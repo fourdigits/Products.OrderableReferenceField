@@ -6,11 +6,8 @@
   xmlns:i18n="http://namespaces.zope.org/i18n"
   i18n_domain="Products.OrderableReferenceField">
 
-  <!-- Not needed to register this package because it's in the Products-namespace -->
-  <!-- <five:registerPackage package="." initialize=".initialize" /> -->
-
   <!-- Include configuration for dependencies listed in setup.py -->
-  <includeDependencies package="." />
+  <!-- includeDependencies package="." /-->
 
   <!-- register all skins-folders -->
   <cmf:registerDirectory name="skins" directory="skins" recursive="True" />

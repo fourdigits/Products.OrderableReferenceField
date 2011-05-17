@@ -25,6 +25,7 @@ $Id$
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes import atapi
 from Products.Archetypes.Registry import registerField, registerWidget
+from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 
 
 class OrderableReferenceWidget(atapi.ReferenceWidget):
@@ -34,6 +35,15 @@ class OrderableReferenceWidget(atapi.ReferenceWidget):
         'macro': 'orderablereference',
         'size': '6',
         'helper_js': ('orderablereference.js',),
+        })
+    
+class OrderableReferenceBrowserWidget(ReferenceBrowserWidget):
+    _properties = ReferenceBrowserWidget._properties.copy()
+    _properties.update({
+        'type': 'orderablereferencebrowser',
+        'macro': 'orderablereferencebrowser',
+        'size': '6',
+        'helper_js': ('orderablereferencebrowser.js',),
         })
 
 
@@ -87,6 +97,12 @@ class OrderableReferenceField(atapi.ReferenceField):
 registerWidget(
     OrderableReferenceWidget,
     title='Orderable Reference',
+    used_for=('Products.OrderableReferenceField.OrderableReferenceField',)
+    )
+
+registerWidget(
+    OrderableReferenceBrowserWidget,
+    title='Orderable Reference Browser',
     used_for=('Products.OrderableReferenceField.OrderableReferenceField',)
     )
 

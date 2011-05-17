@@ -1,5 +1,6 @@
-/* <dtml-with base_properties> (do not remove this :) */
-/* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
+/*
+ * CSS for OrderableReferenceWidget
+ */
 
 #box1, #box2 {
     float: left;
@@ -29,4 +30,7 @@
 .orfspacing {
     clear: both;
 }
-/* </dtml-with> */
+
+.orderablereferencebrowser_arrow {
+}
+

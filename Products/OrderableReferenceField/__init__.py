@@ -29,7 +29,7 @@ from Products.Archetypes.atapi import *
 from Products.Archetypes import listTypes
 
 from Products.OrderableReferenceField._field import OrderableReferenceField
-from Products.OrderableReferenceField._field import OrderableReferenceWidget
+from Products.OrderableReferenceField._field import OrderableReferenceWidget, OrderableReferenceBrowserWidget
 from Products.OrderableReferenceField.config import *
 
 

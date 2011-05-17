@@ -2,6 +2,7 @@
 <object name="portal_javascripts">
 
   <javascript id="orderablereference.js" remove="True" />
+  <javascript id="orderablereferencebrowser.js" remove="True" />
 
 </object>
 
