@@ -68,4 +68,4 @@ Credits
 Copyright
 ---------
 
-Copyright (C) 2006 "Zest Software":http://zestsoftware.nl
+Copyright (C) 2006 "Zest Software": http://zestsoftware.nl
