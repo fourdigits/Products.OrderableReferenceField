@@ -7,6 +7,7 @@ Changelog
 - alternative OrderableReferenceBrowserWidget (using the original Plone pop-up to select objects)
   (see also `#4`__) [filippo1178, marco.mariani]
 - removed z3c.autoinclude ``includeDependencies`` (see `#3`__) [keul]
+- no need to register the widget JavaScript sources globally in the ``portal_javascript`` tool [keul]
 
 __ http://plone.org/products/orderablereferencefield/issues/4
 __ http://plone.org/products/orderablereferencefield/issues/3

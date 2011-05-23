@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts">
 
+<!--
   <javascript id="orderablereference.js"
               cacheable="True"
               compression="none"
@@ -16,6 +17,7 @@
               enabled="True"
               expression=""
               inline="False"/>
+-->
 
 </object>
 
