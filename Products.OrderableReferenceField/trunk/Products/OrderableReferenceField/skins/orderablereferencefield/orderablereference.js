@@ -1,9 +1,13 @@
+/*jslint browser: true */
+/*global window, document */
+
 function oref_top(obj) { /*updated from version 1.2*/
-	obj = (typeof obj == "string") ? document.getElementById(obj) : obj;
-	if (obj.tagName.toLowerCase() != "select" && obj.length < 2)
+	var elements = [], i;
+	obj = (typeof obj === "string") ? document.getElementById(obj) : obj;
+	if (obj.tagName.toLowerCase() !== "select" && obj.length < 2) {
 		return false;
-	var elements = new Array();
-	for (var i=0; i<obj.length; i++) {
+	}
+	for (i=0; i<obj.length; i++) {
 		if (obj[i].selected) {
 			elements[elements.length] = new Array((document.body.innerHTML ? obj[i].innerHTML : obj[i].text), obj[i].value, obj[i].style.color, obj[i].style.backgroundColor, obj[i].className, obj[i].id, obj[i].selected);
 		}
@@ -14,8 +18,12 @@ function oref_top(obj) { /*updated from version 1.2*/
 		}
 	}
 	for (i=0; i<obj.length; i++) {
-		if (document.body.innerHTML) obj[i].innerHTML = elements[i][0];
-		else obj[i].text = elements[i][0];
+		if (document.body.innerHTML) {
+			obj[i].innerHTML = elements[i][0];
+		}
+		else {
+			obj[i].text = elements[i][0];
+		}
 		obj[i].value = elements[i][1];
 		obj[i].style.color = elements[i][2];
 		obj[i].style.backgroundColor = elements[i][3];
@@ -26,11 +34,12 @@ function oref_top(obj) { /*updated from version 1.2*/
 }
 
 function oref_bottom(obj) { /*updated from version 1.2*/
-	obj = (typeof obj == "string") ? document.getElementById(obj) : obj;
-	if (obj.tagName.toLowerCase() != "select" && obj.length < 2)
+	var elements = [], i;
+	obj = (typeof obj === "string") ? document.getElementById(obj) : obj;
+	if (obj.tagName.toLowerCase() !== "select" && obj.length < 2) {
 		return false;
-	var elements = new Array();
-	for (var i=0; i<obj.length; i++) {
+	}
+	for (i=0; i<obj.length; i++) {
 		if (!obj[i].selected) {
 			elements[elements.length] = new Array((document.body.innerHTML ? obj[i].innerHTML : obj[i].text), obj[i].value, obj[i].style.color, obj[i].style.backgroundColor, obj[i].className, obj[i].id, obj[i].selected);
 		}
@@ -41,8 +50,12 @@ function oref_bottom(obj) { /*updated from version 1.2*/
 		}
 	}
 	for (i=obj.length-1; i>-1; i--) {
-		if (document.body.innerHTML) obj[i].innerHTML = elements[i][0];
-		else obj[i].text = elements[i][0];
+		if (document.body.innerHTML) {
+			obj[i].innerHTML = elements[i][0];
+		}
+		else {
+			obj[i].text = elements[i][0];
+		}
 		obj[i].value = elements[i][1];
 		obj[i].style.color = elements[i][2];
 		obj[i].style.backgroundColor = elements[i][3];
@@ -52,38 +65,52 @@ function oref_bottom(obj) { /*updated from version 1.2*/
 	}
 }
 
+/* from in and out */
+function inout_selectAllWords(theList) {
+  var myList = document.getElementById(theList), x;
+  for (x=0; x < myList.length; x++) {
+    myList[x].selected="selected";
+  }
+}
+
 function oref_up(obj) { /*updated from version 1.2*/
-	var obj_string = obj;
-	obj = (typeof obj == "string") ? document.getElementById(obj) : obj;
-	if (obj.tagName.toLowerCase() != "select" && obj.length < 2)
+	var obj_string = obj, sel=[], i;
+	obj = (typeof obj === "string") ? document.getElementById(obj) : obj;
+	if (obj.tagName.toLowerCase() !== "select" && obj.length < 2) {
 		return false;
-	var sel = new Array();
-	for (var i=0; i<obj.length; i++) {
-		if (obj[i].selected == true) {
+	}
+	for (i=0; i<obj.length; i++) {
+		if (obj[i].selected) {
 			sel[sel.length] = i;
 		}
 	}
 	for (i in sel) {
-	    if (sel[i] != 0) {
+	    if (sel[i] !== 0) {
 			if (obj[sel[i]-1]) {
 				if (!obj[sel[i]-1].selected) {
-				var tmp = new Array((document.body.innerHTML ? obj[sel[i]-1].innerHTML : obj[sel[i]-1].text), obj[sel[i]-1].value, obj[sel[i]-1].style.color, obj[sel[i]-1].style.backgroundColor, obj[sel[i]-1].className, obj[sel[i]-1].id);
-				if (document.body.innerHTML) obj[sel[i]-1].innerHTML = obj[sel[i]].innerHTML;
-				else obj[sel[i]-1].text = obj[sel[i]].text;
-				obj[sel[i]-1].value = obj[sel[i]].value;
-				obj[sel[i]-1].style.color = obj[sel[i]].style.color;
-				obj[sel[i]-1].style.backgroundColor = obj[sel[i]].style.backgroundColor;
-				obj[sel[i]-1].className = obj[sel[i]].className;
-				obj[sel[i]-1].id = obj[sel[i]].id;
-				if (document.body.innerHTML) obj[sel[i]].innerHTML = tmp[0];
-				else obj[sel[i]].text = tmp[0];
-				obj[sel[i]].value = tmp[1];
-				obj[sel[i]].style.color = tmp[2];
-				obj[sel[i]].style.backgroundColor = tmp[3];
-				obj[sel[i]].className = tmp[4];
-				obj[sel[i]].id = tmp[5];
-				obj[sel[i]-1].selected = true;
-				obj[sel[i]].selected = false;
+					var tmp = new Array((document.body.innerHTML ? obj[sel[i]-1].innerHTML : obj[sel[i]-1].text), obj[sel[i]-1].value, obj[sel[i]-1].style.color, obj[sel[i]-1].style.backgroundColor, obj[sel[i]-1].className, obj[sel[i]-1].id);
+					if (document.body.innerHTML) {
+						obj[sel[i] - 1].innerHTML = obj[sel[i]].innerHTML;
+					} else {
+						obj[sel[i] - 1].text = obj[sel[i]].text;
+					} 
+					obj[sel[i]-1].value = obj[sel[i]].value;
+					obj[sel[i]-1].style.color = obj[sel[i]].style.color;
+					obj[sel[i]-1].style.backgroundColor = obj[sel[i]].style.backgroundColor;
+					obj[sel[i]-1].className = obj[sel[i]].className;
+					obj[sel[i]-1].id = obj[sel[i]].id;
+					if (document.body.innerHTML) {
+						obj[sel[i]].innerHTML = tmp[0];
+					} else {
+						obj[sel[i]].text = tmp[0];
+					} 
+					obj[sel[i]].value = tmp[1];
+					obj[sel[i]].style.color = tmp[2];
+					obj[sel[i]].style.backgroundColor = tmp[3];
+					obj[sel[i]].className = tmp[4];
+					obj[sel[i]].id = tmp[5];
+					obj[sel[i]-1].selected = true;
+					obj[sel[i]].selected = false;
 				}
 			}
 		}
@@ -92,30 +119,36 @@ function oref_up(obj) { /*updated from version 1.2*/
 }
 
 function oref_down(obj) {
-	var obj_string = obj;
-	obj = (typeof obj == "string") ? document.getElementById(obj) : obj;
-	if (obj.tagName.toLowerCase() != "select" && obj.length < 2)
+	var obj_string = obj, sel=[], i;
+	obj = (typeof obj === "string") ? document.getElementById(obj) : obj;
+	if (obj.tagName.toLowerCase() !== "select" && obj.length < 2) {
 		return false;
-	var sel = new Array();
-	for (var i=obj.length-1; i>-1; i--) {
-		if (obj[i].selected == true) {
+	}
+	for (i=obj.length-1; i>-1; i--) {
+		if (obj[i].selected) {
 			sel[sel.length] = i;
 		}
 	}
 	for (i in sel) {
-		if (sel[i] != obj.length-1) {
+		if (sel[i] !== obj.length-1) {
 			if (obj[sel[i]+1]) {
 				if (!obj[sel[i]+1].selected) {
 					var tmp = new Array((document.body.innerHTML ? obj[sel[i]+1].innerHTML : obj[sel[i]+1].text), obj[sel[i]+1].value, obj[sel[i]+1].style.color, obj[sel[i]+1].style.backgroundColor, obj[sel[i]+1].className, obj[sel[i]+1].id);
-					if (document.body.innerHTML) obj[sel[i]+1].innerHTML = obj[sel[i]].innerHTML;
-					else obj[sel[i]+1].text = obj[sel[i]].text;
+					if (document.body.innerHTML) {
+						obj[sel[i]+1].innerHTML = obj[sel[i]].innerHTML;
+					} else {
+						obj[sel[i]+1].text = obj[sel[i]].text;
+					} 
 					obj[sel[i]+1].value = obj[sel[i]].value;
 					obj[sel[i]+1].style.color = obj[sel[i]].style.color;
 					obj[sel[i]+1].style.backgroundColor = obj[sel[i]].style.backgroundColor;
 					obj[sel[i]+1].className = obj[sel[i]].className;
 					obj[sel[i]+1].id = obj[sel[i]].id;
-					if (document.body.innerHTML) obj[sel[i]].innerHTML = tmp[0];
-					else obj[sel[i]].text = tmp[0];
+					if (document.body.innerHTML) {
+						obj[sel[i]].innerHTML = tmp[0];
+					} else {
+						obj[sel[i]].text = tmp[0];
+					} 
 					obj[sel[i]].value = tmp[1];
 					obj[sel[i]].style.color = tmp[2];
 					obj[sel[i]].style.backgroundColor = tmp[3];
@@ -130,19 +163,10 @@ function oref_down(obj) {
 	inout_selectAllWords(obj_string);
 }
 
-
-/* from in and out */
-function inout_selectAllWords(theList) {
-  myList = document.getElementById(theList);
-  for (var x=0; x < myList.length; x++) {
-    myList[x].selected="selected";
-  }
-}
-
 function inout_addNewKeyword(toList, newText, newValue) {
-  theToList=document.getElementById(toList);
-  for (var x=0; x < theToList.length; x++) {
-    if (theToList[x].text == newText) {
+  var theToList=document.getElementById(toList), x, theLength;
+  for (x=0; x < theToList.length; x++) {
+    if (theToList[x].text === newText) {
       return false;
     }
   }
@@ -152,14 +176,14 @@ function inout_addNewKeyword(toList, newText, newValue) {
 }
 
 function inout_moveKeywords(fromList,toList,selectThese) {
-  theFromList=document.getElementById(fromList);
-  for (var x=0; x < theFromList.length; x++) {
+  var theFromList=document.getElementById(fromList), theToList, x;
+  for (x=0; x < theFromList.length; x++) {
     if (theFromList[x].selected) {
       inout_addNewKeyword(toList, theFromList[x].text, theFromList[x].value);
     }
   }
   theToList=document.getElementById(fromList);
-  for (var x=theToList.length-1; x >= 0 ; x--) {
+  for (x=theToList.length-1; x >= 0 ; x--) {
     if (theToList[x].selected) {
       theToList[x] = null;
     }
