@@ -1,5 +1,5 @@
 /*jslint browser: true */
-/*global window */
+/*global window, jQuery */
 
 
 var referencebrowser_openBrowser,
@@ -67,12 +67,12 @@ referencebrowser_setReference = function(widget_id, uid, label, multi) {
             }
         });
 
-        $input = $('<input type="checkbox" checked="true">').val(uid).attr('name', widget_id+':list');
+        $input = $('<input type="checkbox" checked="true" />').val(uid).attr('name', widget_id+':list');
 
-        $('<li>').append(
-            $('<a class="orderablereferencebrowser_arrow">&#x25B2;</a>'), ' ',
-            $('<a class="orderablereferencebrowser_arrow">&#x25BC;</a>'), ' ',
-            $('<label>').append($input, document.createTextNode(' '+label))
+        $('<li></li>').append(
+            $('<a class="orderablereferencebrowser_arrow">&#x25B2;</a>'), document.createTextNode(' '),
+            $('<a class="orderablereferencebrowser_arrow">&#x25BC;</a>'), document.createTextNode(' '),
+            $('<label></label>').append($input, document.createTextNode(' '+label))
         ).appendTo('#'+widget_id);
 
         $input.attr('checked', 'true');         // fix on IE7 - check *after* adding to DOM
