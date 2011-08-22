@@ -160,18 +160,19 @@
               <ul class="visualNoMarker"
                   tal:attributes="id string:${fieldName};">
                 <li tal:repeat="set targets">
-                  <a class="orderablereferencebrowser_arrow">&#x25B2;</a>
-                  <a class="orderablereferencebrowser_arrow">&#x25BC;</a>
-                  <label tal:define="title    python: set[0].title_or_id();
-                                     obj_path python: '/'.join(set[0].getPhysicalPath());">
-                  <input type="checkbox" 
-                           tal:attributes="name string:${fieldName}:list; 
-                                           value python:set[1];" 
-                           checked="checked" />
+                  <tal:notempty condition="python:set[0]">
+                      <a class="orderablereferencebrowser_arrow">&#x25B2;</a>
+                      <a class="orderablereferencebrowser_arrow">&#x25BC;</a>
+                      <label tal:define="title    python: set[0].title_or_id();
+                                         obj_path python: '/'.join(set[0].getPhysicalPath());">
+                      <input type="checkbox" 
+                               tal:attributes="name string:${fieldName}:list; 
+                                               value python:set[1];" 
+                               checked="checked" />
 						   
-                    <tal:block replace="python: show_path and '%s (%s)' % (title, obj_path.replace(portal_path, '')) or title" />
-                  </label>
-				  
+                      <tal:block replace="python: show_path and '%s (%s)' % (title, obj_path.replace(portal_path, '')) or title" />
+                      </label>
+                  </tal:notempty>
                 </li>
               </ul>
               </div>
